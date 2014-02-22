@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.2.14-build.local+sha.1b3d714
+ * @license AngularJS v1.2.14-build.local+sha.00c7e07
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -533,7 +533,7 @@ angular.module('ngResource', ['ng']).
                 if (action.arrayDecorate) {
                   for (var i in data) {
                     if (data.hasOwnProperty(i)
-                      && !angular.isNumber(i)
+                      && !/^[0-9]+$/.test(i)
                     ) {
                       value[i] = data[i];
                     }
@@ -559,7 +559,7 @@ angular.module('ngResource', ['ng']).
               var promise = value.$promise;
               for (var i in response.data) {
                 if (response.data.hasOwnProperty(i)
-                  && !angular.isNumber(i)
+                  && !/^[0-9]+$/.test(i)
                 ) {
                   value[i] = response.data[i];
                 }
